@@ -4,7 +4,7 @@ import { GET_CONTACT, GET_CONTACT_FAIL, GET_CONTACT_LOAD, GET_CONTACT_SUCCESS } 
 export const getContacts = () => async (dispatch) => {
   dispatch({ type: GET_CONTACT_LOAD })
   try {
-    let result = await axios.get("/api/contact")
+    let result = await axios.get(`/api/contact`)
     console.log(result);
     dispatch({type: GET_CONTACT_SUCCESS, payload: result.data.response})
   } catch (error) {
@@ -15,7 +15,7 @@ export const getContacts = () => async (dispatch) => {
 
 export const postContact = (user) => async (dispatch) => {
   try {
-    await axios.post("/api/contact/user", user)
+    await axios.post(`/api/contact/user`, user)
     dispatch(getContacts())
   } catch (error) {
     console.log(error);

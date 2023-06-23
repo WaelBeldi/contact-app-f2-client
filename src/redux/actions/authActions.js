@@ -22,7 +22,7 @@ const toastOptions = {
 export const registerUser = (formData) => async (dispatch) => {
   dispatch(userLoading())
   try {
-    const res = await axios.post("/api/auth/register", formData)
+    const res = await axios.post(`/api/auth/register`, formData)
     if (res) {
       toast.info(res.data.msg, toastOptions)
     }
@@ -43,7 +43,7 @@ export const registerUser = (formData) => async (dispatch) => {
 export const loginUser = (formData) => async (dispatch) => {
   dispatch(userLoading())
   try {
-    const res = await axios.post("/api/auth/login", formData)
+    const res = await axios.post(`/api/auth/login`, formData)
     console.log("Login res", res);
     if (res) {
       toast.info(res.data.msg, toastOptions)
